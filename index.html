@@ -4,14 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Gutschein</title>
-    <!-- Add your CSS styles here if needed -->
+    <style>
+        /* Add your CSS styles here */
+        body {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1 id="greeting">Hello, Dad!</h1>
-    <button onclick="changeGreeting()">Click me</button>
+    <h1>Your Special Gutschein</h1>
+    <img id="myImage" src="first_picture.jpg" alt="First Picture" onclick="changeImage()">
     <script>
-        function changeGreeting() {
-            document.getElementById("greeting").innerHTML = "Happy Birthday, Dad!";
+        var imageIndex = 0;
+        var imageArray = ["first_picture.jpg", "second_picture.jpg"];
+
+        function changeImage() {
+            var image = document.getElementById("myImage");
+            imageIndex = (imageIndex + 1) % imageArray.length;
+            image.src = imageArray[imageIndex];
         }
     </script>
     <!-- Add your gutschein content here -->
