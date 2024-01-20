@@ -15,7 +15,8 @@
             max-width: 100%;
             height: auto;
             cursor: pointer;
-            border: none;
+            border: none; /* Remove the default border */
+            transition: opacity 0.5s ease-in-out; /* Add transition for opacity */
         }
     </style>
 </head>
@@ -27,8 +28,12 @@
 
         function changeImage() {
             var image = document.getElementById("myImage");
-            imageIndex = (imageIndex + 1) % imageArray.length;
-            image.src = imageArray[imageIndex];
+            image.style.opacity = 0; // Set opacity to 0 for fade out
+            setTimeout(function() {
+                imageIndex = (imageIndex + 1) % imageArray.length;
+                image.src = imageArray[imageIndex];
+                image.style.opacity = 1; // Set opacity to 1 for fade in
+            }, 500); // Wait for 500 milliseconds (0.5 seconds) before changing the image
         }
     </script>
 </body>
